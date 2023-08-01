@@ -1,0 +1,26 @@
+#charamenu {
+    background-color: white;
+    position: fixed;
+    border: 2px solid black;
+    
+}
+
+#murata {
+    cursor: crosshair;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: 0px
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+li:hover {
+    background-color: grey;
+    cursor: pointer
+}
