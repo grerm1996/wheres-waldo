@@ -37,7 +37,7 @@ function Image() {
   return (
     <div className="Image">
         {menuOpen && (
-        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition} setCharaStatus={setCharaStatus} charaStatus={charaStatus} />
+        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition} setCharaStatus={setCharaStatus} charaStatus={charaStatus} setMenuOpen={setMenuOpen}/>
       )}
       <img src='/images/murata.jpg' id='murata' alt='collection of Shonen Jump characters'/>
       <div className={`goku ${charaStatus.goku ? "circle" : ""}`}></div>

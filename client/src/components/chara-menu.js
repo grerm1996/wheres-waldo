@@ -7,9 +7,13 @@ function CharaMenu(props) {
   const [icon, setIcon] = useState('/images/defaulticon.jpg');
   
 
-
   function showIcon(char) {
-      setIcon(`/images/${char}.jpg`)
+    let checkmark = document.getElementById("circle-checkmark")
+    if (!props.charaStatus[char]) {
+      checkmark.style.display = 'none';
+    } else
+      checkmark.style.display = 'block'
+      setIcon(`/images/${char}icon.jpg`)
       
   }
 
@@ -28,6 +32,7 @@ function CharaMenu(props) {
           return console.log('sorry!');
         }
         if (res.ok) {
+          props.setMenuOpen((prevMenuOpen) => !prevMenuOpen);
           props.setCharaStatus((prevCharaStatus) => ({
             ...prevCharaStatus,
             [chara]: true,
@@ -46,27 +51,30 @@ function CharaMenu(props) {
 
     <div id="charamenu"
         style={{ top: props.menuPosition.y, left: props.menuPosition.x}}
-        onMouseLeave={()=>showIcon("defaulticon")}>
+        onMouseLeave={()=>showIcon("default")}>
             <img src={icon} />
+            <span id="circle-checkmark">✓</span>
         <ul>
+
           <li
-            onMouseOver={() => showIcon("gokuicon")}
+            onMouseOver={() => showIcon("goku", props.charaStatus)}
             onClick={() => checkChara('goku', props.searchPosition)}
             className={props.charaStatus.goku ? "complete" : ""}
           >Goku</li>
 
           <li
-            onMouseOver={() => showIcon("cellicon")}
+            onMouseOver={() => showIcon("cell", props.charaStatus)}
             onClick={() => checkChara('cell', props.searchPosition)}
             className={props.charaStatus.cell ? "complete" : ""}
           >Cell</li>
 
 
           <li
-            onMouseOver={() => showIcon("sanjiicon")}
+            onMouseOver={() => showIcon("sanji", props.charaStatus)}
             onClick={() => checkChara('sanji', props.searchPosition)}
             className={props.charaStatus.sanji ? "complete" : ""}
           >Sanji</li>
+
         </ul>
 
     </div>

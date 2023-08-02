@@ -35,8 +35,6 @@ li:hover {
     border: 5px solid rgb(0, 198, 0);
     border-radius: 50%;
     margin: auto;
-    position: absolute;
-    z-index: 3;
 }
 
 .goku {
@@ -44,6 +42,7 @@ li:hover {
     height: 80px;
     top: 330px;
     left: 1060px;
+    position: absolute;
 }
 
 .cell {
@@ -51,6 +50,7 @@ li:hover {
     height: 80px;
     top: 265px;
     left: 1567px;
+    position: absolute;
 }
 
 .sanji {
@@ -58,4 +58,17 @@ li:hover {
     height: 100px;
     top: 1190px;
     left: 1010px;
+    position: absolute;
 }
+
+#circle-checkmark {
+    font-family: sans-serif;
+    background: green;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 65px;
+    display: none
+  }
