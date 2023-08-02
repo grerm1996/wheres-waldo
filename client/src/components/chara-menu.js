@@ -50,7 +50,11 @@ function CharaMenu(props) {
   return (
 
     <div id="charamenu"
-        style={{ top: props.menuPosition.y, left: props.menuPosition.x}}
+      style={
+        props.searchPosition.y > 1100
+          ? { top: props.menuPosition.y - 197, left: props.menuPosition.x }
+          : { top: props.menuPosition.y, left: props.menuPosition.x }
+      }
         onMouseLeave={()=>showIcon("default")}>
             <img src={icon} />
             <span id="circle-checkmark">✓</span>

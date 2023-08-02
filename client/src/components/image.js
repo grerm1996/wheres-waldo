@@ -28,10 +28,6 @@ function Image() {
     };
   }, []); 
 
-  useEffect(() => {
-    console.log('menuOpen:', menuOpen);
-  }, [menuOpen]);
-
 
 
   return (
