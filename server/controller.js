@@ -1,0 +1,3 @@
+
+
+app.use('/posts', postRouter)
