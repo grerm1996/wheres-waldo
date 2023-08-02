@@ -4,11 +4,13 @@ import './image.css';
 
 function CharaMenu(props) {
 
-  const [icon, setIcon] = useState('/images/defaulticon.jpg')
+  const [icon, setIcon] = useState('/images/defaulticon.jpg');
+  
 
 
   function showIcon(char) {
       setIcon(`/images/${char}.jpg`)
+      
   }
 
   function checkChara(chara, searchPosition) {
@@ -26,6 +28,10 @@ function CharaMenu(props) {
           return console.log('sorry!');
         }
         if (res.ok) {
+          props.setCharaStatus((prevCharaStatus) => ({
+            ...prevCharaStatus,
+            [chara]: true,
+          }));
            return console.log(`you found ${chara}!`)
         }
       })
@@ -43,9 +49,24 @@ function CharaMenu(props) {
         onMouseLeave={()=>showIcon("defaulticon")}>
             <img src={icon} />
         <ul>
-            <li onMouseOver={() => showIcon("gokuicon")} onClick={() => checkChara('goku', props.searchPosition)}>Goku</li>
-            <li onMouseOver={() => showIcon("cellicon")} onClick={() => checkChara('cell', props.searchPosition)}>Cell</li>
-            <li onMouseOver={() => showIcon("sanjiicon")} onClick={() => checkChara('sanji', props.searchPosition)}>Sanji</li>
+          <li
+            onMouseOver={() => showIcon("gokuicon")}
+            onClick={() => checkChara('goku', props.searchPosition)}
+            className={props.charaStatus.goku ? "complete" : ""}
+          >Goku</li>
+
+          <li
+            onMouseOver={() => showIcon("cellicon")}
+            onClick={() => checkChara('cell', props.searchPosition)}
+            className={props.charaStatus.cell ? "complete" : ""}
+          >Cell</li>
+
+
+          <li
+            onMouseOver={() => showIcon("sanjiicon")}
+            onClick={() => checkChara('sanji', props.searchPosition)}
+            className={props.charaStatus.sanji ? "complete" : ""}
+          >Sanji</li>
         </ul>
 
     </div>

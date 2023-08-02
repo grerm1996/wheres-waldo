@@ -7,6 +7,8 @@
 
 #murata {
     cursor: crosshair;
+    z-index: 1;
+    position: relative
 }
 
 ul {
@@ -23,4 +25,37 @@ li {
 li:hover {
     background-color: grey;
     cursor: pointer
+}
+
+.complete{
+    text-decoration: line-through;
+}
+
+.circle {
+    border: 5px solid rgb(0, 198, 0);
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    z-index: 3;
+}
+
+.goku {
+    width: 80px;
+    height: 80px;
+    top: 330px;
+    left: 1060px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    top: 265px;
+    left: 1567px;
+}
+
+.sanji {
+    width: 100px;
+    height: 100px;
+    top: 1190px;
+    left: 1010px;
 }

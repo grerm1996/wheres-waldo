@@ -6,6 +6,7 @@ function Image() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [searchPosition, setSearchPosition] = useState({ x: 0, y: 0 });
+  const [charaStatus, setCharaStatus] = useState({goku: false, cell: false, sanji: false})
 
 
   function handleClick(e) {
@@ -36,9 +37,12 @@ function Image() {
   return (
     <div className="Image">
         {menuOpen && (
-        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition}/>
+        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition} setCharaStatus={setCharaStatus} charaStatus={charaStatus} />
       )}
-      <img src='/images/murata.jpg' id='murata' alt='collection of Shonen Jump characters' usemap="#muratamap" />
+      <img src='/images/murata.jpg' id='murata' alt='collection of Shonen Jump characters'/>
+      <div className={`goku ${charaStatus.goku ? "circle" : ""}`}></div>
+      <div className={`cell ${charaStatus.cell ? "circle" : ""}`}></div>
+      <div className={`sanji ${charaStatus.sanji ? "circle" : ""}`}></div>
     </div>
   );
 }
