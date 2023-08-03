@@ -10,15 +10,6 @@ app.use(cors({
 const mongoose = require("mongoose")
 app.use(express.json())
 
-/* 
-function checkCell(req, res) {
-  console.log(req.body)
-  const { searchPosition } = req.body;
-  const charaPositions = {
-    goku: 'searchPosition.x > 1076 && searchPosition.x < 1120 && searchPosition.y > 346 && searchPosition.y < 395',
-    cell: 'searchPosition.x > 1574 && searchPosition.x < 1646 && searchPosition.y > 277 && searchPosition.y < 343',
-  } */
-
 function checkChara(chara) {
   return function(req, res) {
     console.log(req.body)

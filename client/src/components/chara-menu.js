@@ -49,7 +49,8 @@ function CharaMenu(props) {
 
   return (
 
-    <div id="charamenu"
+    <div className="invisible"
+      id={props.menuOpen ? "charamenu" : ""}
       style={
         props.searchPosition.y > 1100
           ? { top: props.menuPosition.y - 197, left: props.menuPosition.x }
@@ -58,7 +59,7 @@ function CharaMenu(props) {
         onMouseLeave={()=>showIcon("default")}>
             <img src={icon} />
             <span id="circle-checkmark">✓</span>
-        <ul>
+        <ul className='dropdown'>
 
           <li
             onMouseOver={() => showIcon("goku", props.charaStatus)}

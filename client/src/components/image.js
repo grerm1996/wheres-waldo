@@ -1,5 +1,5 @@
 import './image.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CharaMenu from './chara-menu'
 
 function Image() {
@@ -32,9 +32,7 @@ function Image() {
 
   return (
     <div className="Image">
-        {menuOpen && (
-        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition} setCharaStatus={setCharaStatus} charaStatus={charaStatus} setMenuOpen={setMenuOpen}/>
-      )}
+        < CharaMenu menuPosition={menuPosition} searchPosition={searchPosition} setCharaStatus={setCharaStatus} charaStatus={charaStatus} setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
       <img src='/images/murata.jpg' id='murata' alt='collection of Shonen Jump characters'/>
       <div className={`goku ${charaStatus.goku ? "circle" : ""}`}></div>
       <div className={`cell ${charaStatus.cell ? "circle" : ""}`}></div>
