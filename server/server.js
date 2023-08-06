@@ -9,6 +9,45 @@ app.use(cors({
 }));
 const mongoose = require("mongoose")
 app.use(express.json())
+const { Schema } = mongoose;
+
+const RecordSchema = new Schema({
+  time: { type: Number, required: true },
+  name: { type: String, required: true }
+})
+
+const Records = mongoose.model("Records", RecordSchema);
+
+
+const addRecord = async (req, res) => {
+  const { name, time } = req.body;
+
+  try {
+    const newRecord = new Records({
+      time, name
+    });
+
+    console.log(newRecord)
+
+    const savedRecord = await newRecord.save();
+    res.json(savedRecord)
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+    console.error(err);
+  }
+}
+
+const readRecords = async (req, res) => {
+  try {
+    const posts = await Records.find().sort({ time: 1 }).limit(10);
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+}
+  
+}
+
+
 
 function checkChara(chara) {
   return function(req, res) {
@@ -26,9 +65,16 @@ function checkChara(chara) {
   }
 }
 
+const mongoDb = process.env.MONGODB_URL;
+mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mongo connection error"));
+
 app.post('/goku', checkChara('goku'))
 app.post('/cell', checkChara('cell'))
 app.post('/sanji', checkChara('sanji'))
+app.post('/record', addRecord)
+app.get('/record', readRecords)
 
 
 

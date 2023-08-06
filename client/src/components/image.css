@@ -1,3 +1,9 @@
+.Image {
+    display: relative;
+    width: 1890px;
+    position: relative
+}
+
 #charamenu {
     background-color: white;
     position: fixed;
@@ -5,7 +11,8 @@
     z-index: 3;
     opacity: 1;
     transition: height 0.3s ease, opacity 0.7s ease;
-    height: 190px
+    height: 190px;
+    padding: 5px;
 }
 
 .invisible {
@@ -16,8 +23,7 @@
 #murata {
     cursor: crosshair;
     z-index: 1;
-    position: relative;
-    object-fit: fill
+    position: relative; 
 }
 
 .dropdown {
@@ -35,6 +41,19 @@
     background-color: grey;
     cursor: pointer
 }
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+   }
+
+.shake {
+    animation: 0.2s horizontal-shaking;
+  }
+  
 
 .complete{
     text-decoration: line-through;

@@ -1,0 +1,71 @@
+.gameovermodal-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%
+}
+
+.gameovermodal {
+    minimum-height: 200px;
+    width: 400px;
+    background-color: white;
+    padding: 10px;
+}
+
+.gameovermodal>p, .recordtable>p {
+    margin:5px;
+    font-size: 1.4rem
+}
+
+.recordtable {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.record {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    font-size: 1.4rem;
+    margin-top: 10px
+  }
+
+.highlightrec {
+    background-color: rgba(9, 255, 0, 0.5);
+    font-weight: 700
+}
+  
+.index {
+    flex: 1;
+    text-align: left; 
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-column: 1 / 2;
+}
+
+.name {
+    flex: 1;
+    grid-column: 2 / 3;
+}
+
+.time {
+    flex: 1;
+    padding-left: 10px; 
+    grid-column: 3 / 4;
+}
+
+svg {
+    height: 40px;
+    width: auto;
+    fill: rgba(231, 224, 224, 0.877);
+}
+
+svg:hover {
+    fill: white;
+}

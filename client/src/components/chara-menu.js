@@ -29,7 +29,12 @@ function CharaMenu(props) {
       })
       .then((res) => {
         if (!res.ok) {
-          return console.log('sorry!');
+          let icon = document.getElementById('icon');
+          icon.classList.add('shake');
+          setTimeout(() => {
+            icon.classList.remove('shake');
+            props.setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+          }, 300);
         }
         if (res.ok) {
           props.setMenuOpen((prevMenuOpen) => !prevMenuOpen);
@@ -57,7 +62,7 @@ function CharaMenu(props) {
           : { top: props.menuPosition.y, left: props.menuPosition.x }
       }
         onMouseLeave={()=>showIcon("default")}>
-            <img src={icon} />
+            <img id='icon' src={icon} />
             <span id="circle-checkmark">✓</span>
         <ul className='dropdown'>
 
