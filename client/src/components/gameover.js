@@ -54,7 +54,7 @@ function GameOverModal(props) {
                         <p>Congratulations, you finished in <strong>{props.recordTime} seconds!</strong></p>
                         <p>What should we call you?</p>
                         <form action="POST" method='localhost:4000/record' onSubmit={handleSubmit}>
-                            <input type="text" name='name' autoComplete='off'/>
+                            <input type="text" name='name' autoComplete='off' maxlength='12' pattern="[a-zA-Z0-9]+" required title="At least one alphanumerical character is required."/>
                             <input type="hidden" name="time" value={props.recordTime} />
                             <button type='submit'>Submit</button>
                         </form>
